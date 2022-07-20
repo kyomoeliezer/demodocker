@@ -1,4 +1,4 @@
-name = 'hello'
+name = 'demodocker'
 loglevel = 'info'
 errorlog = '-'
 accesslog = '-'
