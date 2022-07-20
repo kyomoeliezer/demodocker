@@ -4,11 +4,7 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir -p /opt/services/demodocker/src
 
 COPY requirements.txt /opt/services/demodocker/src/
-RUN apk update \
-    && apk add --virtual build-deps gcc python3-dev musl-dev \
-    && apk add postgresql-dev gcc python3-dev musl-dev \
-    && apk del build-deps \
-    && apk --no-cache add musl-dev linux-headers g++
+
 # install dependencies
 RUN pip install --upgrade pip
 WORKDIR /opt/services/demodocker/src
