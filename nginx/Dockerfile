@@ -1,6 +1,4 @@
-FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY middleware.nginx.conf /etc/nginx/sites-available/middleware.nginx.conf
-RUN mkdir /etc/nginx/sites-enabled
-RUN ln -s /etc/nginx/sites-available/middleware.nginx.conf /etc/nginx/sites-enabled/
-CMD ["nginx", "-g", "daemon off;"]
+FROM nginx:1.19.0-alpine
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
