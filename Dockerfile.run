@@ -1,0 +1,14 @@
+FROM python:3.6
+
+ENV PYTHONUNBUFFERED 1
+RUN mkdir -p /opt/services/demodocker/src
+
+COPY .
+WORKDIR /opt/services/demodocker/src
+RUN pip install -r requirements.txt
+
+COPY . /opt/services/demodocker/src
+RUN cd hello && python manage.py collectstatic --no-input
+
+EXPOSE 8000
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":8000", "--chdir", "hello", "hello.wsgi:application"]
