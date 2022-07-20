@@ -54,7 +54,7 @@ services:
   nginx:
     image: nginx:1.13
     ports:
-      - 4169:4169
+      - 4168:4168
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - static:/opt/services/demodocker/static

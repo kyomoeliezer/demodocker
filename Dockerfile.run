@@ -13,5 +13,5 @@ RUN pip install -r requirements.txt
 COPY . /opt/services/demodocker/src
 RUN python manage.py collectstatic --no-input
 
-EXPOSE 4169
-CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":4169", "--chdir", "demodocker", "demodocker.wsgi:application"]
+EXPOSE 4168
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":4168", "--chdir", "demodocker", "demodocker.wsgi:application"]
